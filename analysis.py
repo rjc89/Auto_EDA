@@ -15,13 +15,15 @@ def plot_histograms(data):
     
     return sns.distplot(data)
 
-# def plot_timeseries(data, t_col, selection):
-#     # 
-#     # g.map(plt.scatter, alpha=0.2)
-#     # g.add_legend()
+def plot_timeseries(data, t_col, selection):
+    # 
+    # g.map(plt.scatter, alpha=0.2)
+    # g.add_legend()
     
-#     #g = sns.lineplot(x = data[t_col], y = data.loc[[selection]], data = data)
-#     return data.plot(x = t_col, y = selection)
+    g = sns.lineplot(x = data[t_col], y = data.loc[selection], data = data)
+    #g = data.plot(x = t_col, y = selection)
+    
+    return plt.plot(x = data[t_col], y = data[selection])
 
 # def plot_timeseries_altair(data, t_col, selection):
 #     chart = alt.Chart(data).mark_point().encode(

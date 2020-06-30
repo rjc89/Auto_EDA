@@ -6,7 +6,7 @@ from pandas_profiling import ProfileReport
 st.title("Auto-EDA")
 st.write('A tool for exploratory data analysis')
 #uploaded_file = st.file_uploader("Choose a dataset", type="csv")
-uploaded_file = "/home/robert/Documents/Auto_EDA/housing.csv"
+uploaded_file = "/home/robert/Documents/Auto_EDA/Q3-data.csv"
 if uploaded_file is not None:
     st.sidebar.title('Is this a time series dataset?')
     ts_choice = st.sidebar.selectbox('Time Series', ('Yes', 'No'))
@@ -27,7 +27,8 @@ if uploaded_file is not None:
         t_col = st.sidebar.selectbox('Select time/date column', cols)
         st.sidebar.title('Select Plot Variables')
         selection = st.sidebar.selectbox('Select Variable', cols)
-        st.pyplot(analysis.plot_timeseries(data, t_col, selection)) 
+        #st.pyplot(analysis.plot_timeseries(data, t_col, selection))
+        st.line_chart(data) 
         #st.altair_chart(analysis.plot_timeseries(data, t_col, selection))
         # add overlay time series button
 
@@ -49,9 +50,9 @@ if uploaded_file is not None:
         
         #plotting a pair grid
         st.title('Pair Grid')
-        #st.pyplot(analysis.plot_pairgrid(data.loc[:, cols != deselection], colour_by))
-        st.pyplot(analysis.plot_histograms(data.loc[:, cols != deselection]))
-        
+        st.pyplot(analysis.plot_pairgrid(data.loc[:, cols != deselection], colour_by))
+        #st.pyplot(analysis.plot_histograms(data.loc[:, cols != deselection]))
+        #st.line_chart(data) 
         
         # Plotting correlation plot of variables with specified R^2 cutoff
 
