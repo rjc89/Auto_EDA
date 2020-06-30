@@ -1,3 +1,4 @@
+#https://www.youtube.com/watch?v=zK4Ch6e1zq8
 import streamlit as st
 import pandas as pd
 import analysis
@@ -5,8 +6,11 @@ from pandas_profiling import ProfileReport
 
 st.title("Auto-EDA")
 st.write('A tool for exploratory data analysis')
+st.write('https://github.com/rjc89/Auto_EDA/blob/master/README.md')
 #uploaded_file = st.file_uploader("Choose a dataset", type="csv")
 uploaded_file = "/home/robert/Documents/Auto_EDA/Q3-data.csv"
+
+# provide housing.csv as a test dataset
 if uploaded_file is not None:
     st.sidebar.title('Is this a time series dataset?')
     ts_choice = st.sidebar.selectbox('Time Series', ('Yes', 'No'))
